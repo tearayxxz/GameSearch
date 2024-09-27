@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="background-color: white;">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HTML with Axios, Tailwind, and DaisyUI</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- DaisyUI Plugin CDN -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
       rel="stylesheet"
       type="text/css"
     />
-    <!-- Axios CDN -->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
 
   <body class="bg-white font-mono h-screen">
-    <!-- navbar -->
     <div class="navbar bg-white drop-shadow-md">
       <div class="container max-w-screen-xl mx-auto">
         <div class="flex-1">
@@ -31,32 +27,23 @@
         </div>
       </div>
     </div>
-    <!-- banner -->
+
     <div class="container max-w-screen-xl mx-auto relative">
       <img src="src/banner.svg" alt="banner" class="w-full" />
-      <div
-        class="search-box absolute inset-0 flex flex-col items-center justify-center"
-      >
+      <div class="search-box absolute inset-0 flex flex-col items-center justify-center">
         <img src="src/logo.svg" alt="logo" class="mb-4 w-full max-w-2xl" />
-
-        <!-- Input Form -->
-        <div
-          class="block border border-gray-300 bg-white rounded-full max-w-xl w-full px-5 py-1"
-        >
-          <form
-            id="search-form"
-            class="relative flex items-center justify-between w-full"
-          >
+        <div class="block border border-gray-300 bg-white rounded-full max-w-xl w-full px-5 py-1">
+          <form id="search-form" class="relative flex items-center justify-between w-full">
             <input
               type="text"
               id="search-input"
               placeholder="Search... (Optional)"
-              class="w-full p-2 pr-12 border border-transparent rounded-full focus:outline-none bg-white"
+              class="w-full p-2 border border-transparent rounded-full focus:outline-none bg-white"
             />
             <select
               name="genres"
               id="genres"
-              class="cursor-pointer ml-2 focus:outline-none bg-white"
+              class="cursor-pointer ml-2 focus:outline-none bg-white border border-transparent rounded-full"
             >
               <option value="none">All Genre</option>
               <option value="action">Action</option>
@@ -71,7 +58,7 @@
             <select
               name="platforms"
               id="platforms"
-              class="cursor-pointer ml-2 focus:outline-none bg-white"
+              class="cursor-pointer ml-2 focus:outline-none bg-white border border-transparent rounded-full py-2 px-4"
             >
               <option value="none">All Platform</option>
               <option value="pc">PC</option>
@@ -79,43 +66,40 @@
               <option value="xbox">Xbox</option>
               <option value="nintendo">Nintendo</option>
             </select>
-            <!-- btn-search -->
-            <a class="btn btn-ghost cursor-pointer rounded-full" id="search-button"
-              ><img
+            <a class="btn btn-ghost cursor-pointer rounded-full p-0 w-14" id="search-button">
+              <img
                 src="src/search-btn.svg"
                 alt="Search"
                 class="cursor-pointer drop-shadow-2xl"
-            /></a>
+              />
+            </a>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Display Search Results -->
-    <div id="results" class="container max-w-screen-xl mx-auto mt-5">
+    <div id="results" class="container max-w-screen-xl mx-auto mt-5 bg-white">
       <h2 class="text-xl font-semibold">Search Results:</h2>
       <div
         id="results-container"
-        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-5 pb-10"
       >
-        <!-- Results -->
       </div>
     </div>
 
-    <!-- Modal -->
     <dialog id="info-modal" class="modal modal-bottom sm:modal-middle">
-      <div class="modal-box">
-        <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
+      <div class="modal-box bg-white">
+        <h2 id="modal-title" class="text-xl font-bold mb-4 text-slate-800"></h2>
         <img id="modal-image" class="w-full object-cover mb-4 rounded" />
-        <p><strong>Released:</strong> <span id="modal-released"></span></p>
-        <p><strong>Rating:</strong> <span id="modal-rating"></span></p>
-        <p><strong>Platforms:</strong> <span id="modal-platforms"></span></p>
-        <p><strong>Genres:</strong> <span id="modal-genres"></span></p>
-        <p><strong>Price:</strong> <span id="modal-price"></span></p>
-        <p><strong>Developer:</strong> <span id="modal-store"></span></p>
-        <p><strong>Tags:</strong> <span id="modal-tag"></span></p>
+        <p><strong class="text-slate-800">Released:</strong> <span id="modal-released" class="text-slate-500"></span></p>
+        <p><strong class="text-slate-800">Rating:</strong> <span id="modal-rating" class="text-slate-500"></span></p>
+        <p><strong class="text-slate-800">Platforms:</strong> <span id="modal-platforms" class="text-slate-500"></span></p>
+        <p><strong class="text-slate-800">Genres:</strong> <span id="modal-genres" class="text-slate-500"></span></p>
+        <p><strong class="text-slate-800">Price:</strong> <span id="modal-price" class="text-slate-500"></span></p>
+        <p><strong class="text-slate-800">Store:</strong> <span id="modal-store" class="text-slate-500"></span></p>
+        <p><strong class="text-slate-800">Tags:</strong> <span id="modal-tag" class="text-slate-500"></span></p>
         <div class="modal-action">
-          <button id="close-modal" class="btn">Close</button>
+          <button id="close-modal" class="btn bg-gradient-to-r from-sky-500 to-indigo-500 border-0 text-white">Close</button>
         </div>
       </div>
     </dialog>

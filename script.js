@@ -42,7 +42,7 @@ function displayResults(games) {
   games.forEach((game) => {
     const gameCard = document.createElement("div");
     gameCard.innerHTML = `
-        <div class="card bg-base-100 w-full shadow-xl">
+        <div class="card bg-base-100 w-full shadow-xl bg-slate-50">
             <figure>
                 <img
                     src="${
@@ -50,18 +50,25 @@ function displayResults(games) {
                       "https://via.placeholder.com/400x300"
                     }"
                     alt="${game.name}"
-                    class="h-40 w-full object-cover" />
+                    class="h-60 w-full object-cover" />
             </figure>
             <div class="card-body h-56 flex flex-col justify-between">
-                <h2 class="card-title text-lg font-semibold line-clamp-2">${
+                <h2 class="card-title text-lg font-semibold line-clamp-2 text-slate-800">${
                   game.name
                 }</h2>
                 <div>
-                    <p>Released: ${game.released || "N/A"}</p>
-                    <p>Rating: ${game.rating || "N/A"}</p>
+                    <p class="text-slate-800">Released:
+                    <span class="text-slate-500"> ${
+                      game.released || "N/A"
+                    }</p></span>
+                    <p class="text-slate-800">Rating:
+                    <span class="text-slate-500">
+                     ${game.rating || "N/A"}
+                    </span>
+                    </p>
                 </div>
                 <div class="card-actions justify-end">
-                    <button class="btn bg-gradient-to-r from-sky-500 to-indigo-500 buy-now text-white" data-game='${encodeURIComponent(
+                    <button class="btn bg-gradient-to-r from-sky-500 to-indigo-500 buy-now text-white border-0" data-game='${encodeURIComponent(
                       JSON.stringify(game)
                     )}'>View more</button>
                 </div>
