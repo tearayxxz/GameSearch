@@ -114,9 +114,6 @@ function showModal(game) {
   document.getElementById("modal-genres").innerText = game.genres
     ? game.genres.map((genre) => genre.name).join(", ")
     : "N/A";
-  document.getElementById("modal-price").innerText = game.price
-    ? `$${game.price}`
-    : "Free";
   document.getElementById("modal-store").innerText = game.stores
     ? game.stores.map((store) => store.store.name).join(", ")
     : "N/A";
