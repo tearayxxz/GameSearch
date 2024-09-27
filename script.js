@@ -13,6 +13,7 @@ const platformIds = {
 async function fetchGames(searchTerm, genre, platform) {
   try {
     const platformId = platform !== "none" ? platformIds[platform] : null;
+    document.getElementById("results-container").innerHTML = `<p class="text-slate-800">Loading....</p>`
     const response = await axios.get(API_URL, {
       params: {
         key: API_KEY,
