@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML with Axios, Tailwind, and DaisyUI</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI Plugin CDN -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="bg-white font-mono">
+    <!-- navbar -->
+    <div class="navbar bg-base-100 drop-shadow-md">
+      <div class="container max-w-screen-xl mx-auto">
+        <div class="flex-1">
+          <a class="btn btn-ghost"><img src="src/logo.svg" alt="" /></a>
+        </div>
+        <div class="flex-none">
+          <a class="btn btn-ghost"><img src="src/facebook.svg" alt="" /></a>
+          <a class="btn btn-ghost"><img src="src/instagram.svg" alt="" /></a>
+          <a class="btn btn-ghost"><img src="src/x.svg" alt="" /></a>
+        </div>
+      </div>
+    </div>
+    <!-- banner -->
+    <div class="container max-w-screen-xl mx-auto relative">
+      <img src="src/banner.svg" alt="banner" class="w-full" />
+      <div
+        class="search-box absolute inset-0 flex flex-col items-center justify-center"
+      >
+        <img src="src/logo.svg" alt="logo" class="mb-4 w-full max-w-2xl" />
+
+        <!-- Input Form -->
+        <div
+          class="block border border-gray-300 bg-white rounded-full max-w-xl w-full px-5 py-1"
+        >
+          <form
+            id="search-form"
+            class="relative flex items-center justify-between w-full"
+          >
+            <input
+              type="text"
+              id="search-input"
+              placeholder="Search... (Optional)"
+              class="w-full p-2 pr-12 border border-transparent rounded-full focus:outline-none"
+            />
+            <select
+              name="genres"
+              id="genres"
+              class="cursor-pointer ml-2 focus:outline-none"
+            >
+              <option value="none">All Genre</option>
+              <option value="action">Action</option>
+              <option value="adventure">Adventure</option>
+              <option value="indie">Indie</option>
+              <option value="rpg">RPG</option>
+              <option value="shooter">Shooter</option>
+              <option value="strategy">Strategy</option>
+              <option value="sports">Sports</option>
+              <option value="racing">Racing</option>
+            </select>
+            <select
+              name="platforms"
+              id="platforms"
+              class="cursor-pointer ml-2 focus:outline-none"
+            >
+              <option value="none">All Platform</option>
+              <option value="pc">PC</option>
+              <option value="playstation">PlayStation</option>
+              <option value="xbox">Xbox</option>
+              <option value="nintendo">Nintendo</option>
+            </select>
+            <!-- btn-search -->
+            <a class="btn btn-ghost cursor-pointer rounded-full" id="search-button"
+              ><img
+                src="src/search-btn.svg"
+                alt="Search"
+                class="cursor-pointer drop-shadow-2xl"
+            /></a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Display Search Results -->
+    <div id="results" class="container max-w-screen-xl mx-auto mt-5">
+      <h2 class="text-xl font-semibold">Search Results:</h2>
+      <div
+        id="results-container"
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4"
+      >
+        <!-- Results -->
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <dialog id="info-modal" class="modal modal-bottom sm:modal-middle">
+      <div class="modal-box">
+        <h2 id="modal-title" class="text-xl font-bold mb-4"></h2>
+        <img id="modal-image" class="w-full object-cover mb-4 rounded" />
+        <p><strong>Released:</strong> <span id="modal-released"></span></p>
+        <p><strong>Rating:</strong> <span id="modal-rating"></span></p>
+        <p><strong>Platforms:</strong> <span id="modal-platforms"></span></p>
+        <p><strong>Genres:</strong> <span id="modal-genres"></span></p>
+        <p><strong>Price:</strong> <span id="modal-price"></span></p>
+        <p><strong>Developer:</strong> <span id="modal-store"></span></p>
+        <p><strong>Tags:</strong> <span id="modal-tag"></span></p>
+        <div class="modal-action">
+          <button id="close-modal" class="btn">Close</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="script.js"></script>
+  </body>
+</html>
